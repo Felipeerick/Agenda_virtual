@@ -8,42 +8,44 @@
 
 <form action="{{ route('users.store') }}" method="POST" enctype='multipart/form-data'>
  @csrf
- 
-<label for="name">Nome</label>
-<input type="text" id='name' name='name'>
 
-<label for="email">Email</label>
-<input type="text" id='email' name='email'>
+ <div class='mb-3'>
 
-<label for="Senha">Senha</label>
-<input type="text" id='Senha' name='senha'>
+<label for="name" class="form-label">Nome</label>
+<input type="text"  class="form-control"id='name' name='name'>
 
-<label for="CPF">CPF</label>
-<input type="text" id='CPF' name='cpf'>
+<label for="email" class="form-label">Email</label>
+<input type="text" class="form-control" id='email' name='email'>
 
-<label for="tel">Número de telefone</label>
-<input type="text" id='tel' name='tel'>
+<label for="Senha" class="form-label">Senha</label>
+<input type="text" class="form-control" id='Senha' name='senha'>
 
-<label for="foto">Foto</label>
-<input type="file" id='foto' name='photo'>
+<label for="CPF" class="form-label">CPF</label>
+<input type="text" class="form-control" id='CPF' name='cpf'>
+
+<label for="tel" class="form-label">Número de telefone</label>
+<input type="text" class="form-control" id='tel' name='tel'>
+
+<label for="foto" class="form-label">Foto</label>
+<input type="file"  class="form-control"id='foto' name='photo'>
  
      <hr>
 
   <h2>Endereço</h2>   
-<label for="Cep">Cep</label>
-<input type="text" id='Cep' name='Cep'>
+<label for="Cep" class="form-label">Cep</label>
+<input type="text"  class="form-control"id='Cep' name='Cep'>
 
-<label for="rua">Rua</label>
-<input type="rua" id='rua' name='street'>
-
-
-<label for="Bairro">Bairro</label>
-<input type="text" id='Bairro' name='neighborhood'>
-
-<label for="Estado">Estado</label>
-<input type="text" id='Estado' name='state'>
+<label for="rua" class="form-label">Rua</label>
+<input type="rua"  class="form-control"id='rua' name='street'>
 
 
+<label for="Bairro" class="form-label">Bairro</label>
+<input type="text" class="form-control" id='Bairro' name='neighborhood'>
+
+<label for="Estado" class="form-label">Estado</label>
+<input type="text"  class="form-control"id='Estado' name='state'>
+
+</div>
 </form>
 
 @endsection

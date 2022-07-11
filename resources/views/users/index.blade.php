@@ -5,15 +5,15 @@
             <h1>Listagem de usuários</h1>
 
                 
-            <table>
+            <table class="table table-dark">
            <thead>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>cpf</th>
-                    <th>telefone</th>
-                    <th>Foto</th>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">cpf</th>
+                    <th scope="col">telefone</th>
+                    <th scope="col">Foto</th>
                 </tr>
             </thead>
 
@@ -23,17 +23,17 @@
                     <tr>
                       
                     @if($user->photo)
-                    <td><img src="storage('/storage/'. $user->photo)" alt=""> </td>
+                    <td scope="row"><img src="storage('/storage/'. $user->photo)" alt=""> </td>
                     @else   
-                    <td><img src="storage('/storage/profile/avatar.jpeg')" alt=""> </td>
+                    <td scope="row"><img src="storage('/storage/profile/avatar.jpeg')" alt=""> </td>
                     @endif
 
-                    <td>$user->id</td>
+                    <td scope="row">$user->id</td>
                       <td>$user->name</td>
                       <td>$user->email</td>
                       <td>$user->cpf</td>
                       <td>$user->tel</td>
-                      <td> <a href="#">Visualizar</a> </td> 
+                      <td><a href="#" class="btn btn-warning">Visualizar</a> </td> 
                   </tr>
 
                   @endforeach

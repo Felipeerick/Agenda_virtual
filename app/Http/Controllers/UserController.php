@@ -38,8 +38,10 @@ class UserController extends Controller
       return redirect()->route('users.index');
     }
 
-    public function idGet()
+    public function idGet($id)
     {
+       $user = $this->user->find($id);
 
+       return view('users.show', compact('user'));
     }
 }
