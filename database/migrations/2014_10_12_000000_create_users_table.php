@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('street');
             $table->string('neighborhood');
             $table->string('state');
+            $table->boolean('is_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -7,13 +7,13 @@
                 
             <table class="table table-dark">
            <thead>
-                <tr>
+               <tr>                    
+                    <th scope="col">Foto</th>
                     <th scope="col">id</th>
                     <th scope="col">name</th>
                     <th scope="col">email</th>
                     <th scope="col">cpf</th>
                     <th scope="col">telefone</th>
-                    <th scope="col">Foto</th>
                 </tr>
             </thead>
 
@@ -33,7 +33,7 @@
                       <td>$user->email</td>
                       <td>$user->cpf</td>
                       <td>$user->tel</td>
-                      <td><a href="#" class="btn btn-warning">Visualizar</a> </td> 
+                      <td><a href="{{ route('users.idGet', $user-id) }}" class="btn btn-warning">Visualizar</a> </td> 
                   </tr>
 
                   @endforeach

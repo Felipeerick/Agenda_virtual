@@ -32,8 +32,8 @@
           <td>$user->email</td>
           <td>$user->cpf</td>
           <td>$user->tel</td>
-          <td><a href="#" class="btn btn-warning">Editar</a> </td> 
-          <td><a href="#" class="btn btn-danger">Remover</a> </td> 
+          <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar</a> </td> 
+          <td><a href="{{ route('users.remove', $user->id) }}" class="btn btn-danger">Remover</a> </td> 
 
       </tr>
 
