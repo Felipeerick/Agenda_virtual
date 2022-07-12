@@ -24,11 +24,6 @@ class UserController extends Controller
        return view('users.create');    
     }
 
-    public function login()
-    {
-       return view('users.login');
-    }
-
     public function store(Request $request)
     {
       $data = $request->all();
@@ -44,7 +39,7 @@ class UserController extends Controller
       return redirect()->route('users.index');
     }
 
-    public function idGet($id)
+    public function show($id)
     {
        $user = $this->user->find($id);
 

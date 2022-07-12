@@ -1,5 +1,5 @@
 @extends('template.layout')
-@section('title', 'Cadastro de usuários')
+@section('title', 'Cadastro de cliente')
 @section('content')
 <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -24,7 +24,7 @@
 <label for="Senha" class="form-label">Confirme sua senha</label>
 <input type="password" class="form-control" id='Senha' name='password_confirmation'  minlength="8">
 
-<label for="CPF" class="form-label">CPF</label>
+<!-- <label for="CPF" class="form-label">CPF</label>
 <input type="text" class="form-control" id='CPF' name='cpf'>
 
 <label for="tel" class="form-label">Número de telefone</label>
@@ -47,7 +47,7 @@
 <input type="text" class="form-control" id='Bairro' name='neighborhood'>
 
 <label for="Estado" class="form-label">Estado</label>
-<input type="text"  class="form-control"id='Estado' name='state'>
+<input type="text"  class="form-control"id='Estado' name='state'> -->
 
 <button type="submit" class='btn btn-outline-light mt-3'> {{ __('Cadastrar') }}</button>
 

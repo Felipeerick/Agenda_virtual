@@ -12,10 +12,18 @@
               
             
             @if(Auth::user())
-             
-            <a href="#"><img class="rounded-circle" src="{{ asset('/storage/'. $user->photo) }}" width="36px" height="36px" alt=""></a>
-            <a href="#" class="btn btn-outline-light">{{Auth::user()->name}}</a>
-           
+            
+            <li class="d-flex sm-3 naveg">
+            
+            <a href="#"><img class=" rounded-circle" src="{{ asset('/storage/'. $user->photo) }}" width="36px" height="36px" alt=""></a>
+            <a href="#" class="tag btn btn-outline-light ">{{Auth::user()->name}}</a>
+            
+
+            <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                          <button type="submit" class="btn btn-outline-light" >Sair</button>                         
+                                        </form>
+            </li>
 
                 @if(Auth::user()->is_admin == 1)
                 <a href="#">dashboard</a>

@@ -36,7 +36,14 @@
           <td>{{$user->cpf}}</td>
           <td>{{$user->tel}}</td>
           <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar</a> </td> 
-          <td><a href="{{ route('users.remove', $user->id) }}" class="btn btn-danger">Remover</a> </td> 
+          <td>
+            <form action="{{ route('users.remove', $user->id) }}" method='POST'>
+            @csrf
+            @method('DELETE')
+
+               <button type="submit" class='btn btn-danger'>remover</button>
+            </form> 
+          </td> 
 
       </tr>
 

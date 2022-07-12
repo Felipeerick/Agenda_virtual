@@ -38,7 +38,7 @@ Route::get('/contacts/{id}/edit', [UserController::class, 'edit'])->name('users.
 
 Route::post('/contacts/{id}/edit', [UserController::class, 'update'])->name('users.update');
 
-Route::get('/contacts/{id}/show', [UserController::class, 'idGet'])->name('users.idGet');
+Route::get('/contacts/{id}/show', [UserController::class, 'show'])->name('users.idGet');
 
 Route::delete('/users/{id}/remove', [UserController::class, 'remove'])->name('users.remove');
 

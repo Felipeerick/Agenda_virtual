@@ -17,3 +17,15 @@
     align-items: center;
     height: 60vh;
 }
+
+.naveg{
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
+    margin: 0 10px;
+} 
+
+.tag{
+    margin:0 14px 0 10px;
+}
+
