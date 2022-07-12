@@ -24,23 +24,21 @@ Route::get('/dashboard', function () {
 
 //usuários
 
-Route::middleware(['auth', 'is_admin'])->group(function (){
-
-
+Route::middleware(['auth'])->group(function (){
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 Route::get('/users/login', [UserController::class, 'login'])->name('users.login');
 
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/contacts/create', [UserController::class, 'create'])->name('users.create');
 
-Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+Route::post('/contacts/create', [UserController::class, 'store'])->name('users.store');
 
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/contacts/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 
-Route::post('/users/{id}/edit', [UserController::class, 'update'])->name('users.update');
+Route::post('/contacts/{id}/edit', [UserController::class, 'update'])->name('users.update');
 
-Route::get('/users/{id}/show', [UserController::class, 'idGet'])->name('users.idGet');
+Route::get('/contacts/{id}/show', [UserController::class, 'idGet'])->name('users.idGet');
 
 Route::delete('/users/{id}/remove', [UserController::class, 'remove'])->name('users.remove');
 

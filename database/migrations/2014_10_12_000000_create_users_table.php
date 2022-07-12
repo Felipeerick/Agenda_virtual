@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('cpf');
             $table->string('tel');
             $table->string('photo');
-            $table->string('cep');
+            $table->string('cep')->nullable();
             $table->string('street');
             $table->string('neighborhood');
             $table->string('state');

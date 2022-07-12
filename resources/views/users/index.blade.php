@@ -24,9 +24,9 @@
                     <tr>
                       
                     @if($user->photo)
-                    <td scope="row"><img src="{{asset('/storage/'. $user->photo)}}" width='50px' height="50px" alt=""> </td>
+                    <td scope="row"><img class='rounded-circle' src="{{asset('/storage/'. $user->photo)}}" width='50px' height="50px" alt=""> </td>
                     @else   
-                    <td scope="row"><img src="{{asset('/storage/profile/avatar.jpeg')}} " alt=""> </td>
+                    <td scope="row"><img class='rounded-circle' src="{{asset('/storage/profile/avatar.jpeg')}} " alt=""> </td>
                     @endif
 
                     <td scope="row">{{$user->id}}</td>

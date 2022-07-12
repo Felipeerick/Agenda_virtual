@@ -24,4 +24,6 @@ class is_admin
  
         return redirect('home')->with('ERROR', 'você não tem permissão de administrador');
     }
+	/**
+	 */
 }
