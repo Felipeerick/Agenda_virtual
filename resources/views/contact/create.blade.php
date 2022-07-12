@@ -1,10 +1,10 @@
 @extends('template.layout')
-@section('title', $title)
+@section('title', 'Criando Contato')
 @section('content')
 
- <h1>Editando {{ $user->name }}</h1>
+ <h1>Adicionando contatos</h1>
 
-<form action="{{ route('users.update', $user->id) }}" method="POST" enctype='multipart/form-data'>
+<form action="{{ route('contacts.store') }}" method="POST" enctype='multipart/form-data'>
  @csrf
 
  <div class='mb-3'>
@@ -45,7 +45,7 @@
 
 </div>
 
-<button type="submit">Atualizar</button>
+<button type="submit" class="btn btn-outline-light">Cadastrar</button>
 </form>
 
 

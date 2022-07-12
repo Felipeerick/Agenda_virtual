@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UserController,
+    ContactController
 
 };
 
 require __DIR__.'/auth.php';
 
-            //  cliente
+            //  cliente sem conta
 
 //Home
 
@@ -26,20 +27,18 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->group(function (){
 
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
-Route::get('/users/login', [UserController::class, 'login'])->name('users.login');
+Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
 
-Route::get('/contacts/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/contacts/create', [ContactController::class, 'store'])->name('contacts.store');
 
-Route::post('/contacts/create', [UserController::class, 'store'])->name('users.store');
+Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
 
-Route::get('/contacts/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::post('/contacts/{id}/edit', [ContactController::class, 'update'])->name('contacts.update');
 
-Route::post('/contacts/{id}/edit', [UserController::class, 'update'])->name('users.update');
+Route::get('/contacts/{id}/show', [ContactController::class, 'show'])->name('contacts.idGet');
 
-Route::get('/contacts/{id}/show', [UserController::class, 'show'])->name('users.idGet');
-
-Route::delete('/users/{id}/remove', [UserController::class, 'remove'])->name('users.remove');
+Route::delete('/contacts/{id}/remove', [ContactController::class, 'remove'])->name('contacts.remove');
 
 });

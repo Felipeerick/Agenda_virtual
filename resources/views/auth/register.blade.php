@@ -24,30 +24,8 @@
 <label for="Senha" class="form-label">Confirme sua senha</label>
 <input type="password" class="form-control" id='Senha' name='password_confirmation'  minlength="8">
 
-<!-- <label for="CPF" class="form-label">CPF</label>
-<input type="text" class="form-control" id='CPF' name='cpf'>
-
-<label for="tel" class="form-label">Número de telefone</label>
-<input type="text" class="form-control" id='tel' name='tel'>
-
-<label for="foto" class="form-label">Foto</label>
-<input type="file"  class="form-control"id='foto' name='photo'>
- 
-     <hr>
-
-  <h4>Endereço</h4>   
-<label for="Cep" class="form-label">Cep</label>
-<input type="text"  class="form-control"id='Cep' name='cep'>
-
-<label for="rua" class="form-label">Rua</label>
-<input type="rua"  class="form-control"id='rua' name='street'>
-
-
-<label for="Bairro" class="form-label">Bairro</label>
-<input type="text" class="form-control" id='Bairro' name='neighborhood'>
-
-<label for="Estado" class="form-label">Estado</label>
-<input type="text"  class="form-control"id='Estado' name='state'> -->
+<label for="foto" class="form-label">Escolha uma foto para o perfil</label>
+<input type="file" class="form-control" id='foto' name='photo'>
 
 <button type="submit" class='btn btn-outline-light mt-3'> {{ __('Cadastrar') }}</button>
 
