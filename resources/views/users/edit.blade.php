@@ -4,7 +4,7 @@
 
  <h1>Editando {{ $user->name }}</h1>
 
-<form action="{{ route('users.update') }}" method="POST" enctype='multipart/form-data'>
+<form action="{{ route('users.update', $user->id) }}" method="POST" enctype='multipart/form-data'>
  @csrf
 
  <div class='mb-3'>
@@ -16,7 +16,7 @@
 <input type="text" class="form-control" id='email' name='email'>
 
 <label for="Senha" class="form-label">Senha</label>
-<input type="text" class="form-control" id='Senha' name='senha'>
+<input type="password" class="form-control" id='Senha' name='senha'>
 
 <label for="CPF" class="form-label">CPF</label>
 <input type="text" class="form-control" id='CPF' name='cpf'>
@@ -44,6 +44,8 @@
 <input type="text"  class="form-control"id='Estado' name='state'>
 
 </div>
+
+<button type="submit">Atualizar</button>
 </form>
 
 

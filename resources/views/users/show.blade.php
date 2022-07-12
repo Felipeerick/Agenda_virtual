@@ -8,12 +8,15 @@
 <table class="table table-dark">
 <thead>
     <tr>
+        
+        <th scope="col">Foto</th>
         <th scope="col">id</th>
         <th scope="col">name</th>
         <th scope="col">email</th>
         <th scope="col">cpf</th>
         <th scope="col">telefone</th>
-        <th scope="col">Foto</th>
+        <th scope="col" colspan="2">Ações</th>
+
     </tr>
 </thead>
 
@@ -22,16 +25,16 @@
         <tr>
 
         @if($user->photo)
-        <td scope="row"><img src="storage('/storage/'. $user->photo)" alt=""> </td>
+        <td scope="row"><img src="{{asset('/storage/'. $user->photo)}}" width='50px' height='50px'alt=""> </td>
         @else   
-        <td scope="row"><img src="storage('/storage/profile/avatar.jpeg')" alt=""> </td>
+        <td scope="row"><img src="{{asset('/storage/profile/avatar.jpeg')}}" alt=""> </td>
         @endif
 
-        <td scope="row">$user->id</td>
-          <td>$user->name</td>
-          <td>$user->email</td>
-          <td>$user->cpf</td>
-          <td>$user->tel</td>
+        <td scope="row">{{$user->id}}</td>
+          <td>{{$user->name}}</td>
+          <td>{{$user->email}}</td>
+          <td>{{$user->cpf}}</td>
+          <td>{{$user->tel}}</td>
           <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Editar</a> </td> 
           <td><a href="{{ route('users.remove', $user->id) }}" class="btn btn-danger">Remover</a> </td> 
 

@@ -24,6 +24,11 @@ class UserController extends Controller
        return view('users.create');    
     }
 
+    public function login()
+    {
+       return view('users.login');
+    }
+
     public function store(Request $request)
     {
       $data = $request->all();
@@ -31,10 +36,10 @@ class UserController extends Controller
 
             if($request->photo)
                 {
-                    $data['photo'] = $request->image->store('profile', 'public');
+                    $data['photo'] = $request->photo->store('profile', 'public');
                 }
 
-      $this->model->create($data);
+      $this->user->create($data);
 
       return redirect()->route('users.index');
     }
@@ -48,7 +53,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
-       $user = $this->model->all();
+       $user = $this->user->find($id);
       
        $title = 'Usuário '. $user->name;
 
@@ -57,7 +62,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-      if (!$user = $this->model->find($id))
+      if (!$user = $this->user->find($id))
           return redirect()->route('users.index');
 
         $data = $request->all();
@@ -74,7 +79,7 @@ class UserController extends Controller
                         Storage::delete($user->photo);
                   }
 
-                  $data['image'] = $request->photo->store('profile', 'public');
+                  $data['photo'] = $request->photo->store('profile', 'public');
          }
 
            $data['is_admin'] = $request->admin?1:0;  

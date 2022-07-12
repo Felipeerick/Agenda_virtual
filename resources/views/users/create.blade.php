@@ -2,11 +2,11 @@
 @section('title', 'Cadastro de usuários')
 @section('content')
 
-<h1>Cadastro de usuário</h1>
+<h2 class="mb-4">Coloque aqui as informações do seu cliente :}</h2>
 
-<h2>Dados Pessoais</h2>
+<h4>Dados Pessoais</h4>
 
-<form action="{{ route('users.store') }}" method="POST" enctype='multipart/form-data'>
+<form action="{{ route('register') }}" method="POST" enctype='multipart/form-data'>
  @csrf
 
  <div class='mb-3'>
@@ -18,7 +18,10 @@
 <input type="text" class="form-control" id='email' name='email'>
 
 <label for="Senha" class="form-label">Senha</label>
-<input type="text" class="form-control" id='Senha' name='senha'>
+<input type="password" class="form-control" id='Senha' name='password'>
+
+<label for="Senha" class="form-label">Confirme sua senha</label>
+<input type="password" class="form-control" id='Senha' name='password_confirmation'>
 
 <label for="CPF" class="form-label">CPF</label>
 <input type="text" class="form-control" id='CPF' name='cpf'>
@@ -31,7 +34,7 @@
  
      <hr>
 
-  <h2>Endereço</h2>   
+  <h4>Endereço</h4>   
 <label for="Cep" class="form-label">Cep</label>
 <input type="text"  class="form-control"id='Cep' name='Cep'>
 
@@ -44,6 +47,8 @@
 
 <label for="Estado" class="form-label">Estado</label>
 <input type="text"  class="form-control"id='Estado' name='state'>
+
+<button type="submit" class='btn btn-outline-light mt-3'> {{ __('Register') }}</button>
 
 </div>
 </form>
