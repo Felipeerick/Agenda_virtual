@@ -2,7 +2,7 @@
 @section('title', 'listagem de usuários')
 @section('content')
 
-<h1>Listagem de usuários</h1>
+<h1> Detalhe do usuário {{ $user->name }}</h1>
 
                 
 <table class="table table-dark">
