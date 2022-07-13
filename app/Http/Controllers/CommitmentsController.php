@@ -35,7 +35,7 @@ class CommitmentsController extends Controller
 
     public function edit($id)
     {
-        $commitments = $this->Commitments->find($id);
+        $commitments = $this->commitments->find($id);
 
         return view('Commitments.edit', compact('commitments'));
     }
@@ -46,12 +46,16 @@ class CommitmentsController extends Controller
         $data = $request->all();
 
         $commitments->update($data);
+
+        return redirect()->route('commitments.index');
     }
 
     public function remove($id)
     {
-        $commmitments = $this->commitments->find($id);
+        $commitments = $this->commitments->find($id);
 
-        $this->commitments->delete($commmitments);
+        $commitments->delete();
+
+        return redirect()->route('commitments.index');
     }
 }

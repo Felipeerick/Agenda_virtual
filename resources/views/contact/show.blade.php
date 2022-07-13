@@ -38,8 +38,8 @@
           <td><a href="{{ route('contacts.edit', $contacts->id) }}" class="btn btn-warning">Editar</a> </td> 
           <td>
             <form action="{{ route('contacts.remove', $contacts->id) }}" method='POST'>
-            @csrf
             @method('DELETE')
+            @csrf
 
                <button type="submit" class='btn btn-danger'>remover</button>
             </form> 

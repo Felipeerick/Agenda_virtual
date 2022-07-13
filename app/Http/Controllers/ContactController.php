@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contacts;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
     protected $contacts;
-
+    
     public function __construct(Contacts $contacts)
     {
       $this->contacts = $contacts;
     }
-    public function index()
+
+    public function index(Request $request)
     {
-       $contacts =  $this->contacts ->all();
+       $contacts = $this->contacts->getContacts(
+             $request->search ?? ''
+       );
 
        return view('contact.index', compact('contacts'));    
     }
@@ -36,7 +40,7 @@ class ContactController extends Controller
                     $data['photo'] = $request->photo->store('profile', 'public');
                 }
 
-                $this->contacts ->create($data);
+                $this->contacts->create($data);
 
       return redirect()->route('contacts.index');
     }
@@ -91,7 +95,7 @@ class ContactController extends Controller
      {
       $contacts = $this->contacts->find($id);
 
-      $this->contacts->delete($contacts);
+      $contacts->delete();
 
       return redirect()->route('contacts.index');
      }

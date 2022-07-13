@@ -37,10 +37,6 @@ Route::get('/commitments/{id}/edit', [CommitmentsController::class, 'edit'])->na
 
 Route::post('/commitments/{id}/edit', [CommitmentsController::class, 'update'])->name('commitments.update');
 
-Route::post('/commitments/{id}/edit', [CommitmentsController::class, 'remove'])->name('commitments.remove');
-
-//Contatos
-
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
 Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
@@ -53,6 +49,8 @@ Route::post('/contacts/{id}/edit', [ContactController::class, 'update'])->name('
 
 Route::get('/contacts/{id}/show', [ContactController::class, 'show'])->name('contacts.idGet');
 
-Route::delete('/contacts/{id}/remove', [ContactController::class, 'remove'])->name('contacts.remove');
+Route::delete('/commitments/{id}', [CommitmentsController::class, 'remove'])->name('commitments.remove');
+
+Route::delete('/contacts/{id}', [ContactController::class, 'remove'])->name('contacts.remove');
 
 });

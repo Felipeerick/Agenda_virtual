@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('cpf');
             $table->string('tel');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('cep')->nullable();
             $table->string('street');
             $table->string('neighborhood');
