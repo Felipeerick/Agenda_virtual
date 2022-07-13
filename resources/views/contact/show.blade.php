@@ -27,7 +27,7 @@
         @if($contacts->photo)
         <td scope="row"><img class='rounded-circle' src="{{asset('/storage/'. $contacts->photo)}}" width='50px' height='50px'alt=""> </td>
         @else   
-        <td scope="row"><img  class='rounded-circle'src="{{asset('/storage/profile/avatar.jpeg')}}" alt=""> </td>
+        <td scope="row"><img  class='rounded-circle'src="{{asset('/storage/profile/avatar.jpeg')}}" width='50px' height='50px' alt=""> </td>
         @endif
 
         <td scope="row">{{$contacts->id}}</td>

@@ -4,12 +4,12 @@
 
 
 <div class='container '>
-   <h1 class="mt-5 mb-4 text-black">Compromissos</h1> 
+   <h1 class="mt-1 mb-4 text-black">Compromissos</h1> 
 
     <a href="{{ route('commitments.create') }}" class='btn btn-outline-light'>Crie a tua anotação</a> 
         <div class="row mt-3">
             @foreach ($commitments as $commitment)
-                <div class="col-sm-3">
+                <div class="col-sm-3 mt-3">
                     <div class="card">
                         <span class="text-center">Data: {{$commitment->date_commitments}} </span>
                         <div class="card-body color-kanban-compromissos">
@@ -31,5 +31,7 @@
             @endforeach
         </div>
    </div>
-
+   <div class='justify-content-center pagination'>
+               {{$commitments->links('pagination::bootstrap-4')}}
+            </div>
 @endsection

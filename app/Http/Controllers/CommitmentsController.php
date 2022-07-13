@@ -14,7 +14,7 @@ class CommitmentsController extends Controller
 
     public function index()
     {    
-        $commitments = $this->commitments->all();
+        $commitments = $this->commitments->paginate(8);
            
         return view('Commitments.index' , compact('commitments'));
     }
