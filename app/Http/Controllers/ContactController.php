@@ -89,10 +89,10 @@ class ContactController extends Controller
 
      public function remove($id)
      {
-      $contacts =  $this->contacts ->find($id);
+      $contacts = $this->contacts->find($id);
 
-      $contacts->delete();
+      $this->contacts->delete($contacts);
 
-      return redirect()->route('contact.index');
+      return redirect()->route('contacts.index');
      }
 }

@@ -16,6 +16,8 @@
             <li class="d-flex sm-3 naveg">
             <a href="#" class="tag btn btn-outline-light ">{{Auth::user()->name}}</a>
             <a href="{{ route('contacts.index') }}" class="tag btn btn-outline-light ">Contatos</a>
+
+            <a href="{{ route('commitments.index') }}" class="tag btn btn-outline-light ">Compromissos</a>
              
             <form method="POST" action="{{ route('logout') }}">
                                             @csrf
