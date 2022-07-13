@@ -8,15 +8,15 @@
 
     <a href="{{ route('commitments.create') }}" class='btn btn-outline-light'>Crie a tua anotação</a> 
         <div class="row mt-3">
-            @foreach ($contacts as $contact)
+            @foreach ($commitments as $commitment)
                 <div class="col-sm-3">
-                    <div class="card container-compromissos ">
-                           <span class="text-center"> {{$contact->date_commitments}} </span>
-                        <div class="card-body">
-                            <h6 class="card-title">{{$contact->name}}</h6>
-                            <h6 class="card-title">{{$contact->description}}</h6>
-                            <a href="#" class="btn btn-warning">Editar</a>
-                            <a href="#" class='btn btn-danger'>Remover</a>
+                    <div class="card">
+                        <span class="text-center"> {{$commitment->date_commitments}} </span>
+                        <div class="card-body color-kanban-compromissos">
+                            <h6 class="card-title">{{$commitment->name}}</h6>
+                            <h6 class="card-title">{{$commitment->description}}</h6>
+                            <a href="{{route('commitments.edit')}}" class="btn btn-warning">Editar</a>
+                            <a href="{{route('commitments.remove')}}" class='btn btn-danger'>Remover</a>
                         </div>
                     </div>
                 </div>

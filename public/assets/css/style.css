@@ -29,8 +29,8 @@
     margin: 0 10px 0 14px;
 }
 
-.container-commitments{
-    background-color: red;
+.color-kanban-compromissos{
+    background-color: rgba(252, 122, 122, 0.3);
 }
 
 .form-create{

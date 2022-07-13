@@ -33,7 +33,11 @@ Route::get('/commitments/create', [CommitmentsController::class, 'create'])->nam
 
 Route::post('/commitments/store', [CommitmentsController::class, 'store'])->name('commitments.store');
 
+Route::get('/commitments/{id}/edit', [CommitmentsController::class, 'edit'])->name('commitments.edit');
 
+Route::post('/commitments/{id}/edit', [CommitmentsController::class, 'update'])->name('commitments.update');
+
+Route::post('/commitments/{id}/edit', [CommitmentsController::class, 'remove'])->name('commitments.remove');
 
 //Contatos
 

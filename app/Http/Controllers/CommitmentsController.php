@@ -14,9 +14,9 @@ class CommitmentsController extends Controller
 
     public function index()
     {    
-        $contacts = $this->commitments->all();
+        $commitments = $this->commitments->all();
            
-        return view('Commitments.index' , compact('contacts'));
+        return view('Commitments.index' , compact('commitments'));
     }
 
     public function create()
@@ -26,10 +26,32 @@ class CommitmentsController extends Controller
 
     public function store(Request $request)
     {
-        $contacts = $request->all();
+        $commitments = $request->all();
 
-        $this->commitments->create($contacts);
+        $this->commitments->create($commitments);
 
         return redirect()->route('commitments.index');
+    }
+
+    public function edit($id)
+    {
+        $commitments = $this->Commitments->find($id);
+
+        return view('Commitments.edit', compact('commitments'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $commitments = $this->commitments->find($id);
+        $data = $request->all();
+
+        $commitments->update($data);
+    }
+
+    public function remove($id)
+    {
+        $commmitments = $this->commitments->find($id);
+
+        $this->commitments->delete($commmitments);
     }
 }
