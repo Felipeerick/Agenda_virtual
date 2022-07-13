@@ -97,6 +97,7 @@ class ContactController extends Controller
 
       $contacts->delete();
 
-      return redirect()->route('contacts.index')->with('remove', 'Removido com sucesso');;
+      return redirect()->route('contacts.index')->with('remove', 'Removido com sucesso');
+      
      }
 }
