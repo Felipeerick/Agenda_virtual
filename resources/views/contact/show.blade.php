@@ -50,4 +50,32 @@
  </tbody>
 </table>
 
+
+<table class="table table-dark">
+<thead>
+    <tr>
+      
+        <th scope="col">CEP</th>
+        <th scope="col">Rua</th>
+        <th scope="col">Bairro</th>
+        <th scope="col">Estado</th>
+
+    </tr>
+</thead>
+
+ <tbody>
+      
+        <tr>
+
+        <td scope="row">{{$contacts->cep}}</td>
+          <td>{{$contacts->street}}</td>
+          <td>{{$contacts->neighborhood}}</td>
+          <td>{{$contacts->state}}</td>
+
+      </tr>
+
+ </tbody>
+</table>
+
+
 @endsection
