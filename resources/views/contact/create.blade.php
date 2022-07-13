@@ -4,6 +4,8 @@
 
  <h1>Adicionando contatos</h1>
 
+ 
+
 <form action="{{ route('contacts.store') }}" method="POST" enctype='multipart/form-data'>
  @csrf
 

@@ -25,9 +25,9 @@ class Contacts extends Model
 
     public function getContacts(string $search = null){
        $users = $this->where(function ($query) use ($search){
-         $query->where('name', 'LIKE', "%{$search}%");
+         
+        $query->where('name', 'LIKE', "%{$search}%");
          $query->orWhere('email', "{$search}");
-
 
        })->paginate(5);
 

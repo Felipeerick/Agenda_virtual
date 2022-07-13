@@ -27,7 +27,7 @@ class ContactController extends Controller
 
     public function create()
     {
-       return view('contact.create');    
+       return view('contact.create');
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class ContactController extends Controller
 
                 $this->contacts->create($data);
 
-      return redirect()->route('contacts.index');
+      return redirect()->route('contacts.index')->with('create', 'Adicionado com sucesso! :}');
     }
 
     public function show($id)
@@ -87,7 +87,7 @@ class ContactController extends Controller
 
              $contacts->update($data);
 
-            return redirect()->route('contacts.index');
+            return redirect()->route('contacts.index')->with('edit', 'Editado com sucesso! SZ');;
     }
 
 
@@ -97,6 +97,6 @@ class ContactController extends Controller
 
       $contacts->delete();
 
-      return redirect()->route('contacts.index');
+      return redirect()->route('contacts.index')->with('remove', 'Removido com sucesso');;
      }
 }

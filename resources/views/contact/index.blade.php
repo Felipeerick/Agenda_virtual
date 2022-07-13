@@ -2,9 +2,24 @@
 @section('title', 'listagem de Clientes')
 @section('content')
 
-            <h1>Listagem de clientes</h1>
+            <h1 class='mb-3'>Listagem de clientes</h1>
 
-            <a href="{{ route('contacts.create') }}" class="btn btn-outline-light mb-3"> Criar Contato Novo </a>
+                         @if(session()->has('create'))
+                                    <span class="d-block p-2  mb-2 alert alert-success">{{ session()->get('create') }}</span>
+                                @endif
+             
+                          @if(session()->has('remove'))
+                                    <span class="d-block p-2  mb-2 alert alert-danger">{{ session()->get('remove') }}</span>
+                                @endif
+                                
+                                
+                             @if(session()->has('edit'))
+                                    <span class="d-block p-2  mb-2 alert alert-warning">{{ session()->get('edit') }}</span>
+                                @endif
+
+            <a href="{{ route('contacts.create') }}" class="btn btn-outline-light mb-2"> Criar Contato Novo </a>
+
+            
 
             <form action="{{ route('contacts.index') }}" method="GET" class="mb-3">
                                     <div class="input-group">
@@ -12,6 +27,8 @@
                                           <button type="submit" class='btn btn-primary ml-2'>Procurar</button>
                                     </div>
                               </form>
+
+                              
                 
             <table class="table table-dark">
            <thead>
