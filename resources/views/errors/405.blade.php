@@ -13,11 +13,11 @@
     <img src="{{ asset('assets/404.svg') }}" height="200px" alt="">
     <div class='text-center text-lg-start'>
       <h1 class='display-1 fw-bold mb-3 text-light'>405</h1>
-      <h2 class='h2 text-light'>Perdido amigo?</h2>
-      <p class='lead pb-3'>Como você chegou aqui?
+      <h2 class='h2 text-light'>Perdido meu nobre?</h2>
+      <p class='lead pb-3'>Você não tem acesso a essas coisas aqui não meu lindo!
       <br>
-     Vou te levar de volta pra casa!</p>
-      <a href="/" class='btn btn-light px-5'>Voltar</a>
+      volta pra casa 😉!</p>
+      <a href="/" class='btn btn-light px-5'>Vem com o monstro</a>
     </div>
 
   </div>

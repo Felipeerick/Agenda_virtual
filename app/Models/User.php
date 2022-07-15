@@ -19,6 +19,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
@@ -47,6 +48,11 @@ class User extends Authenticatable
     public function contacts()
     {
       return $this->hasMany(Contacts::class);  
+    }
+
+    public function commitments()
+    {
+      return $this->hasMany(Commitments::class);  
     }
 
      public function sendPasswordResetNotification($token)

@@ -13,5 +13,11 @@ class Commitments extends Model
         'name',
         'description',
         'date_commitments',
+        'user_id',
     ];
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);  
+    }
 }

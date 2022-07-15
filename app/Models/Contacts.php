@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Contacts extends Model
 {
@@ -21,16 +22,11 @@ class Contacts extends Model
          'neighborhood',
          'state',
          'id',
+         'user_id',
     ];
 
-    public function getContacts(string $search = null){
-       $users = $this->where(function ($query) use ($search){
-         
-        $query->where('name', 'LIKE', "%{$search}%");
-         $query->orWhere('email', "{$search}");
-
-       })->paginate(5);
-
-       return $users;
+    public function user()
+    {
+      return $this->belongsTo(User::class);  
     }
 }

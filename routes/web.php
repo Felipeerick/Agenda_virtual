@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     CommitmentsController,
     ContactController,
-
+    ErroController
 
 };
 
@@ -18,11 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-            //Usuario Autenticado
+//Error
+Route::get('/error', [ErroController::class, 'errorView'])->name('errors.notAllowed');
+       
+                        //Usuario Autenticado
 
 
 Route::middleware(['auth'])->group(function (){

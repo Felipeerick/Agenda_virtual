@@ -8,7 +8,7 @@
 
     <a href="{{ route('commitments.create') }}" class='btn btn-outline-light'>Crie a tua anotação</a> 
         <div class="row mt-3">
-            @foreach ($commitments as $commitment)
+            @foreach ($commitmentsSeparate as $commitment)
                 <div class="col-sm-3 mt-3">
                     <div class="card">
                         <span class="text-center">Data: {{$commitment->date_commitments}} </span>
@@ -32,6 +32,6 @@
         </div>
    </div>
    <div class='justify-content-center pagination'>
-               {{$commitments->links('pagination::bootstrap-4')}}
+               {{$paginate->links('pagination::bootstrap-4')}}
             </div>
 @endsection

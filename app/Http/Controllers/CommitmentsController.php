@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Commitments;
+use Illuminate\Support\Facades\Auth;
 class CommitmentsController extends Controller
 {
 
@@ -14,9 +15,12 @@ class CommitmentsController extends Controller
 
     public function index()
     {    
-        $commitments = $this->commitments->paginate(8);
+        $paginate = $this->commitments->paginate(8);
            
-        return view('Commitments.index' , compact('commitments'));
+        $user_id = Auth::id();
+        $commitmentsSeparate = Commitments::where('user_id', $user_id)->get();
+
+        return view('Commitments.index' , compact('paginate', 'commitmentsSeparate'));
     }
 
     public function create()
@@ -27,6 +31,8 @@ class CommitmentsController extends Controller
     public function store(Request $request)
     {
         $commitments = $request->all();
+
+        $commitments['user_id'] = Auth::id();
 
         $this->commitments->create($commitments);
 
@@ -44,6 +50,8 @@ class CommitmentsController extends Controller
     {
         $commitments = $this->commitments->find($id);
         $data = $request->all();
+
+        $data['user_id'] = Auth::id();
 
         $commitments->update($data);
 

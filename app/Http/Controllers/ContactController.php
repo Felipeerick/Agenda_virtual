@@ -6,23 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\Contacts;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ContactController extends Controller
 {
     protected $contacts;
+    protected $user;
     
-    public function __construct(Contacts $contacts)
+    public function __construct(Contacts $contacts, User $user)
     {
       $this->contacts = $contacts;
+
+      $this->user = $user;
     }
 
     public function index(Request $request)
     {
-       $contacts = $this->contacts->getContacts(
-             $request->search ?? ''
-       );
-
-       return view('contact.index', compact('contacts'));    
+       $contactSeparate = Contacts::where('user_id', Auth::id())->paginate(5);
+      
+       return view('contact.index', compact('contactSeparate'));    
     }
 
     public function create()
@@ -35,12 +37,14 @@ class ContactController extends Controller
       $data = $request->all();
       $data['password'] = bcrypt($request->password);
 
-            if($request->photo)
-                {
-                    $data['photo'] = $request->photo->store('profile', 'public');
-                }
+    if($request->photo)
+    {
+       $data['photo'] = $request->photo->store('profile', 'public');
+    }
+     
+      $data['user_id'] = Auth::id();
 
-                $this->contacts->create($data);
+      $this->contacts->create($data);
 
       return redirect()->route('contacts.index')->with('create', 'Adicionado com sucesso! :}');
     }
@@ -75,8 +79,8 @@ class ContactController extends Controller
 
          if ($request->photo)
          {
-                  if ($contacts->photo && Storage::exists($contacts->photo))
-                  {
+                  if ($contacts->photo && Storage::exists($contacts->photo)){
+
                         Storage::delete($contacts->photo);
                   }
 
@@ -85,14 +89,16 @@ class ContactController extends Controller
 
            $data['is_admin'] = $request->admin?1:0;  
 
-             $contacts->update($data);
+           $data['user_id'] = Auth::id();
 
-            return redirect()->route('contacts.index')->with('edit', 'Editado com sucesso! SZ');;
+           $contacts->update($data);
+
+          return redirect()->route('contacts.index')->with('edit', 'Editado com sucesso! SZ');;
     }
-
 
      public function remove($id)
      {
+
       $contacts = $this->contacts->find($id);
 
       $contacts->delete();

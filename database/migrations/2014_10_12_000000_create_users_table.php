@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->boolean('is_admin')->nullable();
             $table->string('photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
