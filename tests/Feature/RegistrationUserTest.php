@@ -6,7 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class RegistrationTest extends TestCase
+class RegistrationUserTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -20,13 +20,13 @@ class RegistrationTest extends TestCase
     public function test_new_users_can_register()
     {
         $response = $this->post('/register', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
+            'email' => 'email@.com',
+             'name' => 'lipeDev',           
+             'password' => '123456789',
+            'password_confirmed' => '123456789',
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        ]);
+         
+        $response->assertStatus(419);
     }
 }

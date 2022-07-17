@@ -26,8 +26,9 @@ return new class extends Migration
             $table->string('street');
             $table->string('neighborhood');
             $table->string('state');
+            $table->string('updated_at');
+            $table->string('created_at');
             $table->rememberToken();
-            $table->timestamps();
         });
     }
 

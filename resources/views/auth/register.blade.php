@@ -7,25 +7,22 @@
 
 <h4>Dados Pessoais</h4>
 
-<form action="{{ route('register') }}" method="POST" enctype='multipart/form-data'>
+<form action="{{ route('register') }}" method="POST">
  @csrf
 
  <div class='mb-3'>
 
 <label for="name" class="form-label">Nome</label>
-<input type="text"  class="form-control"id='name' name='name'>
+<input type="text"  class="form-control"id='name' name='name' maxlength="30" required>
 
 <label for="email" class="form-label">Email</label>
-<input type="text" class="form-control" id='email' name='email'>
+<input type="text" class="form-control" id='email' name='email' required>
 
 <label for="Senha" class="form-label">Senha</label>
-<input type="password" class="form-control" id='Senha' name='password' minlength="8">
+<input type="password" class="form-control" id='Senha' name='password' minlength="8" required>
 
 <label for="Senha" class="form-label">Confirme sua senha</label>
-<input type="password" class="form-control" id='Senha' name='password_confirmation'  minlength="8">
-
-<label for="foto" class="form-label">Escolha uma foto para o perfil</label>
-<input type="file" class="form-control" id='foto' name='photo'>
+<input type="password" class="form-control" id='Senha' name='password_confirmation'  minlength="8" required>
 
 <button type="submit" class='btn btn-outline-light mt-3'> {{ __('Cadastrar') }}</button>
 

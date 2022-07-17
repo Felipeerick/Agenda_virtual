@@ -19,8 +19,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('description')->nullable();
             $table->string('date_commitments');
+            $table->string('updated_at');
+            $table->string('created_at');
             $table->rememberToken();
-            $table->timestamps();
         });
     }
 
