@@ -10,37 +10,37 @@ use App\Models\User;
 
 class ContactController extends Controller
 {
-    protected $contacts;
-    protected $user;
+   protected $contacts;
+   protected $user;
     
-    public function __construct(Contacts $contacts, User $user)
-    {
+   public function __construct(Contacts $contacts, User $user)
+   {
       $this->contacts = $contacts;
 
       $this->user = $user;
-    }
+   }
 
-    public function index(Request $request)
-    {
-       $contactSeparate = Contacts::where('user_id', Auth::id())->paginate(5);
+   public function index(Request $request)
+   {
+      $contactSeparate = Contacts::where('user_id', Auth::id())->paginate(5);
       
-       return view('contact.index', compact('contactSeparate'));    
-    }
+      return view('contact.index', compact('contactSeparate'));    
+   }
 
-    public function create()
-    {
-       return view('contact.create');
-    }
+   public function create()
+   {
+      return view('contact.create');
+   }
 
-    public function store(Request $request)
-    {
+   public function store(Request $request)
+   {
       $data = $request->all();
       $data['password'] = bcrypt($request->password);
 
-    if($request->photo)
-    {
-       $data['photo'] = $request->photo->store('profile', 'public');
-    }
+      if($request->photo)
+      {
+         $data['photo'] = $request->photo->store('profile', 'public');
+      }
      
       $data['user_id'] = Auth::id();
 
@@ -49,61 +49,57 @@ class ContactController extends Controller
       return redirect()->route('contacts.index')->with('create', 'Adicionado com sucesso! :}');
     }
 
-    public function show($id)
-    {
-       $contacts =  $this->contacts ->find($id);
+   public function show($id)
+   {
+      $contacts =  $this->contacts ->find($id);
 
-       return view('contact.show', compact('contacts'));
-    }
+      return view('contact.show', compact('contacts'));
+   }
 
-    public function edit($id)
-    {
-       $contacts =  $this->contacts ->find($id);
+   public function edit($id)
+   {
+      $contacts =  $this->contacts ->find($id);
       
-       $title = 'Usuário '. $contacts->name;
+      $title = 'Usuário '. $contacts->name;
 
-       return view('contact.edit', compact('contacts', 'title'));
-    }
+      return view('contact.edit', compact('contacts', 'title'));
+   }
 
-    public function update(Request $request, $id)
-    {
+   public function update(Request $request, $id)
+   {
       if (!$contacts =  $this->contacts ->find($id))
-          return redirect()->route('contacts.index');
+         return redirect()->route('contacts.index');
 
-        $data = $request->all();
+      $data = $request->all();
 
+      if ($request->password)
+         $data['password'] = bcrypt($request->password);
 
-         if ($request->password)
-               $data['password'] = bcrypt($request->password);
-
-
-         if ($request->photo)
-         {
-                  if ($contacts->photo && Storage::exists($contacts->photo)){
-
-                        Storage::delete($contacts->photo);
-                  }
-
-                  $data['photo'] = $request->photo->store('profile', 'public');
+      if ($request->photo)
+      {
+         if ($contacts->photo && Storage::exists($contacts->photo)){
+         Storage::delete($contacts->photo);
          }
 
-           $data['is_admin'] = $request->admin?1:0;  
+         $data['photo'] = $request->photo->store('profile', 'public');
+      }
 
-           $data['user_id'] = Auth::id();
+      $data['is_admin'] = $request->admin?1:0;  
 
-           $contacts->update($data);
+      $data['user_id'] = Auth::id();
 
-          return redirect()->route('contacts.index')->with('edit', 'Editado com sucesso! SZ');;
-    }
+      $contacts->update($data);
 
-     public function remove($id)
-     {
+      return redirect()->route('contacts.index')->with('edit', 'Editado com sucesso! SZ');;
+   }
 
+   public function remove($id)
+   {
       $contacts = $this->contacts->find($id);
 
       $contacts->delete();
 
       return redirect()->route('contacts.index')->with('remove', 'Removido com sucesso');
       
-     }
+   }
 }

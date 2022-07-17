@@ -7,7 +7,6 @@ use App\Models\Commitments;
 use Illuminate\Support\Facades\Auth;
 class CommitmentsController extends Controller
 {
-
     public function __construct(Commitments $commitments)
     {
         $this->commitments = $commitments;
@@ -18,6 +17,7 @@ class CommitmentsController extends Controller
         $paginate = $this->commitments->paginate(8);
            
         $user_id = Auth::id();
+        
         $commitmentsSeparate = Commitments::where('user_id', $user_id)->get();
 
         return view('Commitments.index' , compact('paginate', 'commitmentsSeparate'));
