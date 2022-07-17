@@ -10,19 +10,11 @@ use App\Http\Controllers\{
 
 require __DIR__.'/auth.php';
 
-            //  cliente sem conta
-
-//Home
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Error
-Route::get('/error', [ErroController::class, 'errorView'])->name('errors.notAllowed');
-       
-                        //Usuario Autenticado
-
+Route::get('/error', [ErroController::class, 'errorView'])->name('errors.notAllowed');    
 
 Route::middleware(['auth'])->group(function (){
 
