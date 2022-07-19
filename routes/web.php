@@ -26,7 +26,7 @@ Route::post('/commitments/store', [CommitmentsController::class, 'store'])->name
 
 Route::get('/commitments/{id}/edit', [CommitmentsController::class, 'edit'])->name('commitments.edit');
 
-Route::post('/commitments/{id}/edit', [CommitmentsController::class, 'update'])->name('commitments.update');
+Route::put('/commitments/{id}/update', [CommitmentsController::class, 'update'])->name('commitments.update');
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 

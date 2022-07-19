@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class EditCommitmentsTest extends TestCase
 {
@@ -15,18 +16,23 @@ class EditCommitmentsTest extends TestCase
      */
     public function test_edit_commitments()
     {
-        $this->post('/login', [
-            'email' => 'loro@gmail.com',
+        $user = User::factory()->create();
+
+       $response = $this->post('/login', [
+            'email' => $user->email,
             'password' => 'password',
         ]);
 
+       $this->actingAs($user);
 
-        $this->post('/contacts/{4}/update', [
+       $response = $this->put('/commitments/' . $user->id . '/update', [
             'date_commitments' => '01/10/2022',
             'name' => 'mecontrataPay',           
             'description' => '123456789',
         ]);
 
-        $this->assertGuest();
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
     }
 }

@@ -4,9 +4,9 @@
 
 <h1>Editando {{ $contacts->name }}</h1>
 
-<form action="{{ route('contacts.update', $contacts->id) }}" method="PUT" enctype='multipart/form-data'>
+<form action="{{ route('contacts.update', $contacts->id) }}" method="POST" enctype='multipart/form-data'>
   @csrf
- 
+  @method('PUT')
   <div class='mb-3'>
 
     <label for="name" class="form-label">Nome</label>
@@ -16,7 +16,7 @@
     <input type="text" class="form-control" id='email' value='{{ $contacts->email }}' required name='email'>
 
     <label for="Senha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id='Senha'value='{{ $contacts->password }}' maxlength="12" required name='password'>
+    <input type="password" class="form-control" id='Senha' value='{{ $contacts->password }}' maxlength="12" required name='password'>
 
     <label for="CPF" class="form-label">CPF</label>
     <input type="text" class="form-control" id='CPF'value='{{ $contacts->cpf }}' required  name='cpf'>
@@ -25,7 +25,7 @@
     <input type="text" class="form-control" id='tel' value='{{ $contacts->tel }}' required name='tel'>
 
     <label for="foto" class="form-label">Foto</label>
-    <input type="file"  class="form-control"id='foto' value='{{ $contacts->photo }}'required name='photo'>
+    <input type="file"  class="form-control"id='foto' value='{{ $contacts->photo }}' name='photo'>
     <hr>
 
     <h2>Endereço</h2>   

@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class RegistrationCommitmentsTest extends TestCase
 {
@@ -15,18 +16,23 @@ class RegistrationCommitmentsTest extends TestCase
      */
     public function test_create_commitments()
     {
-        $this->post('/login', [
-            'email' => 'rick0531927@gmail.com',
-            'password' => '123456789',
-        ]);
+        $user = User::factory()->create();  
+  
+        
+      $response = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'password', 
+      ]);
+  
+      $this->actingAs($user);
 
 
-        $this->get('/commitments/create', [
+      $response = $this->get('/commitments/create', [
             'date_commitments' => '05/07/2022',
             'name' => 'loro@gmail.com',
             'description' => 'wrong-password',
         ]);
 
-        $this->assertGuest();
+         $response->assertStatus(200);
     }
 }

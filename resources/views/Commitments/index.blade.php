@@ -2,7 +2,7 @@
 @section('title', 'Compromissos')
 @section('content')
 
-<div class='container '>
+<div class='container'>
     <h1 class="mt-1 mb-4 text-black">Compromissos</h1> 
     <a href="{{ route('commitments.create') }}" class='btn btn-outline-light'>Crie a tua anotação</a> 
     <div class="row mt-3">

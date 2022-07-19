@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
 
 class RegistrationContactTest extends TestCase
 {
@@ -15,12 +16,17 @@ class RegistrationContactTest extends TestCase
      */
     public function test_create_contact()
     {
-        $this->post('/login', [
-            'email' => 'loro@gmail.com',
-            'password' => 'password',
+        $user = User::factory()->create();  
+  
+        
+        $response = $this->post('/login', [
+          'email' => $user->email,
+          'password' => 'password', 
         ]);
+    
+        $this->actingAs($user);
 
-        $this->get('/contacts/create',[
+       $response = $this->get('/contacts/create',[
             'state'  =>  'state',
             'street' =>  'street',
             'neighborhood' =>  'neighborhood',
@@ -33,6 +39,6 @@ class RegistrationContactTest extends TestCase
             'password' => '123456789',
         ]);
 
-        $this->assertGuest();
+        $response->assertStatus(200);
     }
 }
