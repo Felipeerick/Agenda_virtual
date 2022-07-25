@@ -3,8 +3,10 @@
 @section('content')
 
     <div class='container'>   
-        
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <div class='fundo-cadastro'>
+            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        </div>
 
         <h2 class="mb-4">Coloque aqui as informações do seu cliente :}</h2>
 
@@ -16,7 +18,7 @@
             <div class='mb-3'>
 
                 <label for="name" class="form-label">Nome</label>
-                <input type="text"  class="form-control"id='name' name='name' maxlength="30" required>
+                <input type="text"  class="form-control"id='name' name='name' maxlength="36" required>
 
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id='email' name='email' required>
