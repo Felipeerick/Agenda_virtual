@@ -11,8 +11,8 @@
                     <form action="{{ route('commitments.store') }}" method="post" >
                         @csrf
                         <input type="date" name="date_commitments" required>
-                        <input type="text" class="mb-3 mt-3" name='name' maxlength='19' width='30px' placeholder="Nome do compromisso" >
-                        <input type="text" name="description" maxlength='24' placeholder='Descrição do compromisso'>
+                        <input type="text" class="mb-3 mt-3" name='name' required maxlength='35' width='30px' placeholder="Nome do compromisso" >
+                        <input type="text" name="description" maxlength='24' required placeholder='Descrição do compromisso'>
                         <button type="submit" class='btn btn-dark mt-3'>Salvar</button>
                     </form>
                 </div>
