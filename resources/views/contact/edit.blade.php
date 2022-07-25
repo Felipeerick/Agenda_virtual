@@ -15,9 +15,6 @@
     <label for="email" class="form-label">Email</label>
     <input type="text" class="form-control" id='email' value='{{ $contacts->email }}' required name='email'>
 
-    <label for="Senha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id='Senha' value='{{ $contacts->password }}' maxlength="12" required name='password'>
-
     <label for="CPF" class="form-label">CPF</label>
     <input type="text" class="form-control" id='CPF'value='{{ $contacts->cpf }}' required  name='cpf'>
 

@@ -14,9 +14,6 @@
     <label for="email" class="form-label">Email</label>
     <input type="text" class="form-control" id='email'  required name='email'>
 
-    <label for="Senha" class="form-label">Senha</label>
-    <input type="password" class="form-control" id='Senha'required maxlength="12" name='senha'>
-
     <label for="CPF" class="form-label">CPF</label>
     <input type="text" class="form-control" id='CPF' required name='cpf'>
 

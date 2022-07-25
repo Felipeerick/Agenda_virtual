@@ -35,7 +35,6 @@ class ContactController extends Controller
    public function store(Request $request)
    {
       $data = $request->all();
-      $data['password'] = bcrypt($request->password);
 
       if($request->photo)
       {
@@ -72,9 +71,6 @@ class ContactController extends Controller
 
       $data = $request->all();
 
-      if ($request->password)
-         $data['password'] = bcrypt($request->password);
-
       if ($request->photo)
       {
          if ($contacts->photo && Storage::exists($contacts->photo)){
@@ -83,8 +79,6 @@ class ContactController extends Controller
 
          $data['photo'] = $request->photo->store('profile', 'public');
       }
-
-      $data['is_admin'] = $request->admin?1:0;  
 
       $data['user_id'] = Auth::id();
 
