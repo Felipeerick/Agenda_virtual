@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('updated_at');
-            $table->string('email_verified_at');
+            $table->string('email_verified_at')->nullable();
             $table->string('created_at');
             $table->rememberToken();
             
