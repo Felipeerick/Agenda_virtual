@@ -27,7 +27,7 @@
         @endforeach
     </div>
 </div>
-<div class='justify-content-center pagination'>
+<div class='justify-content-center pagination mt-2'>
    {{$paginate->links('pagination::bootstrap-4')}}
 </div>
 @endsection
