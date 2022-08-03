@@ -38,7 +38,7 @@ class ContactController extends Controller
 
       if($request->photo)
       {
-         $data['photo'] = $request->photo->store('profile', 'public');
+         $data['photo'] = $request->photo->store('/images', 's3');
       }
      
       $data['user_id'] = Auth::id();
@@ -75,9 +75,10 @@ class ContactController extends Controller
       {
          if ($contacts->photo && Storage::exists($contacts->photo)){
          Storage::delete($contacts->photo);
+         Storage::delete('https://agenda-virtual.s3.eu-west-1.amazonaws.com/'. $contacts->photo);
          }
 
-         $data['photo'] = $request->photo->store('profile', 'public');
+         $data['photo'] = $request->photo->store('/images', 's3');
       }
 
       $data['user_id'] = Auth::id();

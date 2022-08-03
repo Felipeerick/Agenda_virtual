@@ -22,7 +22,7 @@
     <input type="text" class="form-control" id='tel' value='{{ $contacts->tel }}' required name='tel'>
 
     <label for="foto" class="form-label">Foto</label>
-    <input type="file"  class="form-control"id='foto' value='{{ $contacts->photo }}' name='photo'>
+    <input type="file"  class="form-control"id='foto' name='photo'>
     <hr>
 
     <h2>Endereço</h2>   

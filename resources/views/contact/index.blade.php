@@ -33,9 +33,9 @@
             @foreach($contactSeparate as $contact)
                 <tr>   
                     @if($contact->photo)
-                        <td scope="row"><img class='rounded-circle' src="{{asset('/storage/'. $contact->photo)}}" width='50px' height="50px" alt=""> </td>
+                        <td scope="row"><img class='rounded-circle' src="{{asset('https://agenda-virtual.s3.eu-west-1.amazonaws.com/'. $contact->photo)}}" width='50px' height="50px" alt=""> </td>
                     @else   
-                        <td scope="row"><img class='rounded-circle' src="{{asset('/storage/profile/avatar.jpeg')}} " width='50px' height="50px" alt=""> </td>
+                        <td scope="row"><img class='rounded-circle' src="https://cdn.pixabay.com/photo/2014/06/27/16/47/person-378368_960_720.png" width='50px' height="50px" alt=""> </td>
                     @endif
                         <td scope="row">{{ $contact->name }}</td>
                         <td>{{$contact->email}}</td>
